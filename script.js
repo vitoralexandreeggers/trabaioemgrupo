@@ -28,7 +28,7 @@ function preencherOpcoes(){
       const option = document.createElement("option");
       option.value = item.id;
       option.textContent = item.nome;
-      selectHospedes.apprendChild(option);
+      selectHospedes.appendChild(option);
    }
 
    const selectQuartos = document.getElementById("quartos");
@@ -37,7 +37,7 @@ function preencherOpcoes(){
       const option = document.createElement("option");
       option.value = item.id;
       option.textContent = item.nome;
-      selectQuartos.apprendChild(option);
+      selectQuartos.appendChild(option);
    }
 
    const selectRefeicoes = document.getElementById("refeicao");
@@ -46,7 +46,7 @@ function preencherOpcoes(){
       const option = document.createElement("option");
       option.value = item.id;
       option.textContent = item.nome;
-      selectRefeicoes.apprendChild(option);
+      selectRefeicoes.appendChild(option);
    }
 
 
