@@ -1,33 +1,62 @@
+
+
+
+
 const hospedes = [
 
-{ id: "numero_um", nome: "um", preco: 200},
-{ id: "numero_tres", nome: "tres", preco: 400},    
-{ id: "numero_seis", nome: "seis", preco: 600}                                        
+{ id: "umhospede", nome: "um", preco_diário: 200},
+{ id: "treshospedes", nome: "tres", preco_diário: 400},    
+{ id: "seishospedes", nome: "seis", preco_diário: 600}                                        
 
 ]
 
 const quartos = [
 
-{ id: "quartos", nome: "luxo", preco: 1500},
-{ id: "quartos", nome: "medio", preco: 550},
-{ id: "quartos", nome: "barato", preco: 300}
+{ id: "quartoluxo", nome: "luxo", preco_diário: 1500},
+{ id: "quartomedio", nome: "medio", preco_diário: 550},
+{ id: "quartobarato", nome: "barato", preco_diário: 300}
 
 
  ]
 
 const refeicoes = [
 
-{ id: "cafe", nome: "grandes", preco: 200},
-{ id: "quartos", nome: "medias", preco: 150},
-{ id: "jantar", nome: "pequenas", preco: 100},
+{ id: "feieicaogrande", nome: "grande", preco_diário: 200},
+{ id: "refeicaomedia", nome: "média", preco_diário: 150},
+{ id: "refeicaopequena", nome: "pequena", preco_diário: 100},
 
 ]
 
-function calcula(){
+function preencherOpcoes(){
 
+const selectHospedes = document.getElementById("numero_hospedes");
+for (let i = 0; i < hospedes.lenght; i++) {
+   const item = hospedes[i];
+   const option = document.createElement("option");
+   option.value = item.id;
+   option.textContent = item.nome;
+   selectHospedes.apprendChild(option);
+}
 
-    
+const selectQuartos = document.getElementById("quartos");
+for (let i = 0; i < quartos.lenght; i++) {
+   const item = quartos[i];
+   const option = document.createElement("option");
+   option.value = item.id;
+   option.textContent = item.nome;
+   selectQuartos.apprendChild(option);
+}
+
+const selectRefeicoes = document.getElementById("refeicao");
+for (let i = 0; i < refeicoes.lenght; i++) {
+   const item = quartos[i];
+   const option = document.createElement("option");
+   option.value = item.id;
+   option.textContent = item.nome;
+   selectRefeicoes.apprendChild(option);
 }
 
 
+
+}
 
