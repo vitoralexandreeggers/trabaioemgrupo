@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário</title>
+</head>
+<body>
+<script src="script.js"></script>
+
+<h1>Monte sua Hospedagem!</h1>
+
+<label for="nome_cliente">Nome:</label>
+<input type="text" name="nome_cliente" id="nome_cliente" placeholder="Nome">
+<br>
+<br>
+<label for="numero_hospedes">Hospedes:</label>
+<select name="numero_hospedes" id="numero_hospedes">
+<option value="">Selecione</option>
+<option value="um">1</option>
+<option value="tres">3</option>
+<option value="seis">6</option>
+<select>
+<br>
+<br>
+<label for="tempo_hospeNome: des">Tempo de hospedagem:</label>
+<input type="text" name="tempo_hospedes" id="tempo_hospedes" placeholder="Tempo">
+<br>
+<br>
+<label for="data_checkin">data do checkin:</label>
+<input type="date" name="data_checkin" id="data_checkin">
+<br>
+<br>
+<label for="data_checkout">data do checkout:</label>
+<input type="date" name="data_checkout" id="data_checkout">
+<br>
+<br>
+<label for="quartos">quartos:</label>
+<select name="quartos" id="quartos">
+<option value="">Selecione</option>
+<option value="luxo">luxo</option>
+<option value="medio">medio</option>
+<option value="barato">barato</option>
+<select>
+<br>
+<br>
+<label for="refeicao">refeições:</label>
+<select name="refeicao" id="refeicao">
+<option value="">selecione</option>
+<option value="cafe">grandes</option>
+<option value="almoco">medias</option>
+<option value="jantar">pequenas</option>
+<select>
+<br>
+<br>
+<button type="button" onclick="calcula()" >gera relatório final</button>
+<p id="resultado" ></p>
+
+
+
+
+
+
+</body>
+</html>
