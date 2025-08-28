@@ -3,16 +3,16 @@
 
 const quartos = [
 
-{ id: "quartoluxo", nome: "luxo", preco_diário: 1500},
-{ id: "quartomedio", nome: "medio", preco_diário: 550},
-{ id: "quartobarato", nome: "barato", preco_diário: 300}
+{ id: "quartoluxo", nome: "luxo", preco_diario: 1500},
+{ id: "quartomedio", nome: "medio", preco_diario: 550},
+{ id: "quartobarato", nome: "barato", preco_diario: 300}
 ];
 
 const refeicoes = [
 
-{ id: "feieicaogrande", nome: "grande", preco_diário: 200},
-{ id: "refeicaomedia", nome: "média", preco_diário: 150},
-{ id: "refeicaopequena", nome: "pequena", preco_diário: 100}
+{ id: "feieicaogrande", nome: "grande", preco_diario: 200},
+{ id: "refeicaomedia", nome: "média", preco_diario: 150},
+{ id: "refeicaopequena", nome: "pequena", preco_diario: 100}
 ];
 
 function preencherOpcoes(){
@@ -52,8 +52,16 @@ preencherOpcoes();
 function gerarRelatorio() { 
    const nome = document.getElementById("nome_cliente").value;
    const pessoas = parseInt(document.getElementById("hospede").value);
-   const dias = parseInt(document.getElementById)
+   const dias = parseInt(document.getElementById("dia").value);
+   const quartosid = (document.getElementById("quartos").value);
+   const refeicoesid = (document.getElementById("refeicao").value);
 
+   var quartoss = procurarporid(quartos, quartosid);
+   var refeicoess = procurarporid(refeicoes, refeicoesid);
+   
+   const custoQuartos = quartoss.preco_diario * dias * pessoas;
+   const custoRefeicoes = refeicoess.preco_diario * dias * pessoas;
+   const total = custoQuartos + custoRefeicoes;
 
 
 
