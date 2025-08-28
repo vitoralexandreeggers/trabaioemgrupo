@@ -1,11 +1,5 @@
 
-const hospedes = [
 
-{ id: "umhospede", nome: "um", preco_diário: 200},
-{ id: "treshospedes", nome: "tres", preco_diário: 400},    
-{ id: "seishospedes", nome: "seis", preco_diário: 600}                                        
-
-];
 
 const quartos = [
 
@@ -22,14 +16,6 @@ const refeicoes = [
 ];
 
 function preencherOpcoes(){
-   const selectHospedes = document.getElementById("numero_hospedes");
-   for (let i = 0; i < hospedes.length; i++) {
-      const item = hospedes[i];
-      const option = document.createElement("option");
-      option.value = item.id;
-      option.textContent = item.nome;
-      selectHospedes.appendChild(option);
-   }
 
    const selectQuartos = document.getElementById("quartos");
    for (let i = 0; i < quartos.length; i++) {
@@ -50,8 +36,34 @@ function preencherOpcoes(){
    }
 
 
+}
+
+function procurarporid(lista, idprocurado) {
+  for (let i = 0; i < lista.lenght; i++) {
+   if (lista[i].id === idprocurado) {
+      return lista[i];
+   }
+  }
+  return null;
 
 }
 preencherOpcoes();
+
+function gerarRelatorio() { 
+   const nome = document.getElementById("nome_cliente").value;
+   const pessoas = parseInt(document.getElementById("hospede").value);
+   const dias = parseInt(document.getElementById)
+
+
+
+
+}
+
+
+
+
+
+
+
 
 
