@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulário</title>
-    
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     
@@ -44,10 +44,17 @@
         <br>
         <br>
 
-        <button type="button"  >gera relatório final</button>
+        <button type="button" onclick="gerarRelatorio()">gera relatório final</button>
         <p id="resultado" ></p>
 
 </form>
+
+<hr>
+
+<div id="relatorio"></div>
+
+<br>
+<button onclick="window.print()">Gerar PDF do Relatorio</button>
 
 
 <script src="script.js"></script>

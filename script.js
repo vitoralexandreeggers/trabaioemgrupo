@@ -39,7 +39,7 @@ function preencherOpcoes(){
 }
 
 function procurarporid(lista, idprocurado) {
-  for (let i = 0; i < lista.lenght; i++) {
+  for (let i = 0; i < lista.length; i++) {ome:
    if (lista[i].id === idprocurado) {
       return lista[i];
    }
@@ -50,7 +50,7 @@ function procurarporid(lista, idprocurado) {
 preencherOpcoes();
 
 function gerarRelatorio() { 
-   const nome = document.getElementById("nome_cliente").value;
+   const nomedocliente = document.getElementById("nome_cliente").value;
    const pessoas = parseInt(document.getElementById("hospede").value);
    const dias = parseInt(document.getElementById("dia").value);
    const quartosid = (document.getElementById("quartos").value);
@@ -63,9 +63,21 @@ function gerarRelatorio() {
    const custoRefeicoes = refeicoess.preco_diario * dias * pessoas;
    const total = custoQuartos + custoRefeicoes;
 
+   const relatorioHTML = `
+      <h2>Relatório do hotel</h2>
+      <p><strong>nome do cliente:</strong> ${nomedocliente}</p>
+      <p><strong>dias de hospedagem:</strong> ${dias}</p>
+      <p><strong>numero de hospedes:</strong> ${pessoas}</p>
+      <p><strong>quartos:</strong> ${quartos.nome} - R$ ${custoQuartos.toFixed(2)}</p>
+      <p><strong>refeicao:</strong> ${refeicoes.nome} - R$ ${custoRefeicoes.toFixed(2)}</p>
+      <h3>Total Estimado: R$ ${total.toFixed(2)}</h3>
+      <p>Obrigado por usar a nossa ficha de hotel!</p>
+   `;  
 
+document.getElementById("relatorio").innerHTML = relatorioHTML;
 
 }
+
 
 
 
