@@ -3,16 +3,16 @@
 
 const quartos = [
 
-{ id: "quartoluxo", nome: "luxo", preco_diario: 1500},
-{ id: "quartomedio", nome: "medio", preco_diario: 550},
-{ id: "quartobarato", nome: "barato", preco_diario: 300}
+{ id: "quartoluxo", nome: "luxo", preco_diario: 300},
+{ id: "quartomedio", nome: "medio", preco_diario: 250},
+{ id: "quartobarato", nome: "barato", preco_diario: 150}
 ];
 
 const refeicoes = [
 
-{ id: "feieicaogrande", nome: "grande", preco_diario: 200},
-{ id: "refeicaomedia", nome: "média", preco_diario: 150},
-{ id: "refeicaopequena", nome: "pequena", preco_diario: 100}
+{ id: "feieicaogrande", nome: "grande", preco_diario: 100},
+{ id: "refeicaomedia", nome: "média", preco_diario: 50},
+{ id: "refeicaopequena", nome: "pequena", preco_diario: 30}
 ];
 
 function preencherOpcoes(){
@@ -68,8 +68,8 @@ function gerarRelatorio() {
       <p><strong>nome do cliente:</strong> ${nomedocliente}</p>
       <p><strong>dias de hospedagem:</strong> ${dias}</p>
       <p><strong>numero de hospedes:</strong> ${pessoas}</p>
-      <p><strong>quartos:</strong> ${quartos.nome} - R$ ${custoQuartos.toFixed(2)}</p>
-      <p><strong>refeicao:</strong> ${refeicoes.nome} - R$ ${custoRefeicoes.toFixed(2)}</p>
+      <p><strong>quartos:</strong> ${quartoss.nome} - R$ ${custoQuartos.toFixed(2)}</p>
+      <p><strong>refeicao:</strong> ${refeicoess.nome} - R$ ${custoRefeicoes.toFixed(2)}</p>
       <h3>Total Estimado: R$ ${total.toFixed(2)}</h3>
       <p>Obrigado por usar a nossa ficha de hotel!</p>
    `;  
