@@ -8,10 +8,14 @@
 </head>
 <body>
     
-
-    <h1>Monte sua Hospedagem!</h1>
+    <h1></h1>
 
         <form>
+
+        <h2>formulário</h2>
+
+       <fieldset>
+        <legend>informações pessoais</legend>
 
         <label for="nome_cliente">Nome:
             <input type="text" name="nome_cliente" id="nome_cliente" placeholder="Nome">
@@ -22,13 +26,20 @@
 
        dias de hospedagem <input type="number" name="dia" id="dia" placeholder="dias">
 
-        <br>
-        <br>
+       <br>
+       <br>
 
         numero de hospedes <input type="number" name="hospede" id="hospede" placeholder="hospedes">
 
         <br>
         <br>
+
+</fieldset>
+
+        <br>
+
+<fieldset>
+    <legend>restaurante</legend>
 
         <label for="quartos">quartos:
             <select name="quartos" id="quartos"></select>
@@ -41,19 +52,16 @@
             <select name="refeicao" id="refeicao"></select>
         </label>
 
+</fieldset>
+
         <br>
-        <br>
-
-        <input type="range" name="33333" id="ttt">
-
-        <input type="checkbox" name="eeee" id="eee">
-
+        
         <button type="button" onclick="gerarRelatorio()">gera relatório final</button>
         <p id="resultado" ></p>
 
-</form>
+        </form>
 
-<hr>
+        <hr>
 
 <div id="relatorio"></div>
 
