@@ -60,12 +60,6 @@ function procurarPorId(lista, idProcurado) {
 }
 preencherOpcoes();
 
-var VetorPacotesProntos = [
-   { id: 'calabresa', nome: 'inteira calabresa média com coca 2 litros', preco: 3 },
-   { id: 'pepperoni', nome: 'inteira pepperoni média com guaraná 2 litros', preco: 4},
-   { id: 'quatro', nome: 'inteira quatro queijos média com fanta 2 litros', preco: 5}
-
-];
 
 function procurarPorId(vetor, idProcurado){
   var i;
@@ -75,26 +69,6 @@ function procurarPorId(vetor, idProcurado){
     }
   }
   return null;
-}
-
-function preencherPacotesProntos(){
-
-  var area = document.getElementById('area_de_pacotes_prontos');
-  area.innerHTML = '';
-
-  var i, pacote, linha;
-  for(i = 0; i < vetorPacotesProntos.length; i++){
-    pacote = vetorPacotesProntos[i];
-
-    linha  = '<label>';
-    linha += pacote.nome + ' — <strong>' + formatarReais(pacote.preco) + '</strong> ';
-    linha += '<input id="q_' + pacote.id + '" type="number" min="1" value="1" style="width:80px"> ';
-    linha += '<button class="no-print" onclick="adicionarPacoteProntoPorId(\'' + pacote.id + '\')">Adicionar</button> ';
-    linha += '<button class="no-print" onclick="removerPacoteProntoPorId(\'' + pacote.id + '\')">Remover 1</button>';
-    linha += '</label>';
-     area.innerHTML += linha;
-  }
-
 }
 
 

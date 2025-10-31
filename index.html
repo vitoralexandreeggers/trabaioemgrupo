@@ -68,27 +68,27 @@
 
     
     <label><strong>borda recheada?</strong></label>
-    <label><input type="radio" name="destino" value="Rio de Janeiro|300" checked> sim </label>
-    <label><input type="radio" name="destino" value="Foz do Iguaçu|350"> não </label>
+    <label><input type="radio" name="destino" value="sim2" checked> sim </label>
+    <label><input type="radio" name="destino" value="nao0"> não </label>
     
     <div class="linha" style="margin-top:6px">
       <label> Noites:
         <input id="campo_noites" type="number" min="1" value="2" style="width:80px">
       </label>
 
-      <label> Hotel:
+      <label> bebidas-:
     
-        <select id="lista_hoteis"></select>
+        <select id="lista_bebidas"></select>
       </label>
     </div>
 
     <label style="margin-top:6px"><strong>Extras</strong></label>
-    <label><input type="checkbox" class="extra" value="Café da manhã|30"> Café da manhã (R$ 30/noite)</label>
-    <label><input type="checkbox" class="extra" value="City tour|120"> City tour (R$ 120 por pacote)</label>
-    <label><input type="checkbox" class="extra" value="Traslado aeroporto|80"> Traslado aeroporto (R$ 80 por pacote)</label>
+    <label><input type="checkbox" class="extra" value="porcaodefrango20"> porção de frango</label>
+    <label><input type="checkbox" class="extra" value="porcodebatata20"> porção de batata</label>
+    <label><input type="checkbox" class="extra" value="porcaodetilapia20"> porção de tilápia</label>
 
     <div class="linha" style="margin-top:8px">
-      <input id="campo_observacoes" type="text" placeholder="Observações (ex.: cama extra)" style="flex:1">
+      <input id="campo_observacoes" type="text" placeholder="Observações (ex.: apartamento)" style="flex:1">
       <input id="campo_qtd_personalizado" type="number" min="1" value="1" style="width:80px">
       <button class="no-print" onclick="adicionarPacotePersonalizado()">Adicionar pacote personalizado</button>
     </div>
@@ -98,7 +98,7 @@
 
 
   <fieldset>
-    <legend>3) Voo (opcional)</legend>
+    <legend>3) saches: ketchup, maionese,(opcional) '</legend>
     <select id="lista_voos"></select>
     <input id="campo_qtd_voo" type="number" min="1" value="1" style="width:80px">
     <button class="no-print" onclick="adicionarVoo()">Adicionar voo</button>
