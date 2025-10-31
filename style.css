@@ -1,8 +1,8 @@
-@media print { 
+@media print {
     body * {
         visibility: hidden;
     }
-   #relatorio, #relatorio * {
+    #relatorio, #relatorio * {
         visibility: visible;
     }
     #relatorio {

@@ -1,89 +1,133 @@
 
 
-
-const quartos = [
-
-{ id: "quartoluxo", nome: "luxo", preco_diario: 300},
-{ id: "quartomedio", nome: "medio", preco_diario: 250},
-{ id: "quartobarato", nome: "barato", preco_diario: 150}
+const sabores = [
+  { id: "calabresa", nome: "Calabresa", preco: 20 },
+  { id: "pepperoni", nome: "Pepperoni", preco: 20 },
+  { id: "queijos", nome: "quatro queijos", preco: 20 }
 ];
 
-const refeicoes = [
-
-{ id: "feieicaogrande", nome: "grande", preco_diario: 100},
-{ id: "refeicaomedia", nome: "média", preco_diario: 50},
-{ id: "refeicaopequena", nome: "pequena", preco_diario: 30}
+const tamanho = [
+  { id: "oitopedaço", nome: "8 pedaços", precoDiaria: 20 },
+  { id: "quatorzepedaço", nome: "14 pedaços", precoDiaria: 30 },
+  { id: "vintepedaço", nome: "20 pedaços", precoDiaria: 40 }
 ];
 
-function preencherOpcoes(){
+const bebidas = [
+  { id: "coca", nome: "refri", precoDiario: 8 },
+  { id: "brahma", nome: "cerveja", precoDiario: 5 },
+  { id: "mineral", nome: "agua", precoDiario: 3 }
+];
 
-   const selectQuartos = document.getElementById("quartos");
-   for (let i = 0; i < quartos.length; i++) {
-      const item = quartos[i];
-      const option = document.createElement("option");
-      option.value = item.id;
-      option.textContent = item.nome;
-      selectQuartos.appendChild(option);
-   }
+function preencherOpcoes() {
+  
+  const selectSabor = document.getElementById("sabor");
+  for (let i = 0; i < sabores.length; i++) {
+    const item = sabores[i];                 
+    const option = document.createElement("option"); 
+    option.value = item.id;                      
+    option.textContent = item.nome;              
+    selectSabor.appendChild(option);        
+  }
 
-   const selectRefeicoes = document.getElementById("refeicao");
-   for (let i = 0; i < refeicoes.length; i++) {
-      const item = refeicoes[i];
-      const option = document.createElement("option");
-      option.value = item.id;
-      option.textContent = item.nome;
-      selectRefeicoes.appendChild(option);
-   }
+  
+  const selectTamanho = document.getElementById("tamanho");
+  for (let i = 0; i < tamanho.length; i++) {
+    const item = tamanho[i];
+    const option = document.createElement("option");
+    option.value = item.id;
+    option.textContent = item.nome;
+    selectTamanho.appendChild(option);
+  }
 
-
+  
+  const selectBebidas = document.getElementById("bebida");
+  for (let i = 0; i < bebidas.length; i++) {
+    const item = bebidas[i];
+    const option = document.createElement("option");
+    option.value = item.id;
+    option.textContent = item.nome;
+    selectBebidas.appendChild(option);
+  }
 }
 
-function procurarporid(lista, idprocurado) {
-  for (let i = 0; i < lista.length; i++) {ome:
-   if (lista[i].id === idprocurado) {
-      return lista[i];
-   }
+function procurarPorId(lista, idProcurado) {
+  for (let i = 0; i < lista.length; i++) {
+    if (lista[i].id === idProcurado) {
+      return lista[i]; 
+    }
   }
-  return null;
-
+  return null; 
 }
 preencherOpcoes();
 
-function gerarRelatorio() { 
-   const nomedocliente = document.getElementById("nome_cliente").value;
-   const pessoas = parseInt(document.getElementById("hospede").value);
-   const dias = parseInt(document.getElementById("dia").value);
-   const quartosid = (document.getElementById("quartos").value);
-   const refeicoesid = (document.getElementById("refeicao").value);
+var VetorPacotesProntos = [
+   { id: 'calabresa', nome: 'inteira calabresa média com coca 2 litros', preco: 3 },
+   { id: 'pepperoni', nome: 'inteira pepperoni média com guaraná 2 litros', preco: 4},
+   { id: 'quatro', nome: 'inteira quatro queijos média com fanta 2 litros', preco: 5}
 
-   var quartoss = procurarporid(quartos, quartosid);
-   var refeicoess = procurarporid(refeicoes, refeicoesid);
-   
-   const custoQuartos = quartoss.preco_diario * dias * pessoas;
-   const custoRefeicoes = refeicoess.preco_diario * dias * pessoas;
-   const total = custoQuartos + custoRefeicoes;
+];
 
-   const relatorioHTML = `
-      <h2>Relatório do hotel</h2>
-      <p><strong>nome do cliente:</strong> ${nomedocliente}</p>
-      <p><strong>dias de hospedagem:</strong> ${dias}</p>
-      <p><strong>numero de hospedes:</strong> ${pessoas}</p>
-      <p><strong>quartos:</strong> ${quartoss.nome} - R$ ${custoQuartos.toFixed(2)}</p>
-      <p><strong>refeicao:</strong> ${refeicoess.nome} - R$ ${custoRefeicoes.toFixed(2)}</p>
-      <h3>Total Estimado: R$ ${total.toFixed(2)}</h3>
-      <p>Obrigado por usar a nossa ficha de hotel!</p>
-   `;  
+function procurarPorId(vetor, idProcurado){
+  var i;
+  for(i = 0; i < vetor.length; i++){
+    if(vetor[i].id === idProcurado){
+      return vetor[i];
+    }
+  }
+  return null;
+}
 
-document.getElementById("relatorio").innerHTML = relatorioHTML;
+function preencherPacotesProntos(){
+
+  var area = document.getElementById('area_de_pacotes_prontos');
+  area.innerHTML = '';
+
+  var i, pacote, linha;
+  for(i = 0; i < vetorPacotesProntos.length; i++){
+    pacote = vetorPacotesProntos[i];
+
+    linha  = '<label>';
+    linha += pacote.nome + ' — <strong>' + formatarReais(pacote.preco) + '</strong> ';
+    linha += '<input id="q_' + pacote.id + '" type="number" min="1" value="1" style="width:80px"> ';
+    linha += '<button class="no-print" onclick="adicionarPacoteProntoPorId(\'' + pacote.id + '\')">Adicionar</button> ';
+    linha += '<button class="no-print" onclick="removerPacoteProntoPorId(\'' + pacote.id + '\')">Remover 1</button>';
+    linha += '</label>';
+     area.innerHTML += linha;
+  }
 
 }
 
 
+function gerarRelatorio() {
+    const nome = document.getElementById("nome").value;
+    const enderecodocliente = document.getElementById("endereco").value;
+    const cepefe = document.getElementById("cepeefe").value;
+    const pagamento = document.getElementById("pagamento").value;
+    const saborId = document.getElementById("sabor").value;
+    const tamanhoId = document.getElementById("tamanho").value;
+    const bebidasId = document.getElementById("bebida").value;
 
+    var saborr = procurarPorId(sabores, saborId);
+    var tamanhoo = procurarPorId(tamanho, tamanhoId);
+    var bebidaa = procurarPorId(bebidas, bebidasId);
 
+    const custoSabor = saborr.preco 
+    const custoTamanho = tamanhoo.precoDiaria 
+    const custoBebidas = bebidaa.precoDiario 
+    const total = custoSabor + custoTamanho + custoBebidas;
 
+    const relatorioHTML = `
+        <h2>Relatório da Viagem</h2>
+        <p><strong>nome do cliente:</strong> ${nome}</p>
+        <p><strong>endereço do cliente:</strong> ${enderecodocliente}</p>
+        <p><strong>cpf do cliente:</strong> ${cepefe}</p>
+        <p><strong>forma de pagamento:</strong> ${pagamento}</p>
+        <p><strong>sabor:</strong> ${saborr.nome} - R$ ${custoSabor.toFixed(2)}</p>
+        <p><strong>tamanho:</strong> ${tamanhoo.nome} - R$ ${custoTamanho.toFixed(2)}</p>
+        <p><strong>bebida:</strong> ${bebidaa.nome} - R$ ${custoBebidas.toFixed(2)}</p>
+        <h3>Total Estimado: R$ ${total.toFixed(2)}</h3>
+        <p>Obrigado por pedir!</p>
+    `;
 
-
-
-
-
+    document.getElementById("relatorio").innerHTML = relatorioHTML;
+}

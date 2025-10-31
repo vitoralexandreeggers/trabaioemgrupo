@@ -1,74 +1,123 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulário</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>pizza</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
-    <h1></h1>
 
-        <form>
-
-        <h2>formulário</h2>
-
-       <fieldset>
-        <legend>informações pessoais</legend>
-
-        <label for="nome_cliente">Nome:
-            <input type="text" name="nome_cliente" id="nome_cliente" placeholder="Nome">
-        </label>
-
-        <br>
-        <br>
-
-       dias de hospedagem <input type="number" name="dia" id="dia" placeholder="dias">
-
-       <br>
-       <br>
-
-        numero de hospedes <input type="number" name="hospede" id="hospede" placeholder="hospedes">
-
-        <br>
-        <br>
-
-</fieldset>
-
-        <br>
+  <h1>Monte seu pedido de entrega</h1>
 
 <fieldset>
-    <legend>restaurante</legend>
+    <legend>informações pessoais</legend>
+  <form id="formViagem">
+    <label>Nome do cliente: <input type="text" id="nome"></label><br>
+    <label>Endereço do cliente: <input type="text" id="endereco"></label><br>
+    <label>Cpf do cliente: <input type="password" id="cepeefe"></label><br>
 
-        <label for="quartos">quartos:
-            <select name="quartos" id="quartos"></select>
-        </label>
+    <label>forma de pagamento:
+      <select id="pagamento">
+        <option value="Cartao">cartão</option>
+        <option value="Pix">pix</option>
+        <option value="Dinheiro">dinheiro fisico</option>
+        <option value="Paypal">paypal</option>
+        <option value="PicPay">picpay</option>
+      </select>
+    </label>
 
-        <br>
-        <br>
+    </fieldset>
+    
+    <br>
 
-        <label for="refeicao">refeições:
-            <select name="refeicao" id="refeicao"></select>
-        </label>
+<fieldset>
+    <legend>1) Pedidos prontos</legend>
 
-</fieldset>
+    <div class="linha">
+      <label>
+        Pizza 4 queijos grande e coca 2 litros — <strong>R$ 40,00 </strong>
+        <input id="q_quatroqueijo" type="number" min="1" value="1" style="width:80px">
+        <button class="no-print" onclick="adicionarPacotePronto('Rio 3 noites', 40, 'q_quatroqueijo')">Adicionar</button>
+        <button class="no-print" onclick="removerUmaUnidadeDePacotePronto('Rio 3 noites')">Remover 1</button>
+      </label>
+    </div>
 
-        <br>
-        
-        <button type="button" onclick="gerarRelatorio()">gera relatório final</button>
-        <p id="resultado" ></p>
+    <div class="linha">
+      <label>
+        Pizza calabresa grande e porção de frango — <strong>R$ 50,00</strong>
+        <input id="q_calabresa" type="number" min="1" value="1" style="width:80px">
+        <button class="no-print" onclick="adicionarPacotePronto('Foz 4 noites', 50, 'q_calabresa')">Adicionar</button>
+        <button class="no-print" onclick="removerUmaUnidadeDePacotePronto('Foz 4 noites')">Remover 1</button>
+      </label>
+    </div>
 
-        </form>
-
-        <hr>
-
-<div id="relatorio"></div>
+    <div class="linha">
+      <label>
+        Pizza meia calabresa e meia quatro queijos com porção de batata — <strong>R$ 50,00</strong>
+        <input id="q_meia" type="number" min="1" value="1" style="width:80px">
+        <button class="no-print" onclick="adicionarPacotePronto('Gramado 2 noites', 50, 'q_meia')">Adicionar</button>
+        <button class="no-print" onclick="removerUmaUnidadeDePacotePronto('Gramado 2 noites')">Remover 1</button>
+      </label>
+    </div>
+  </fieldset>
 
 <br>
-<button onclick="window.print()">Gerar PDF do Relatorio</button>
+
+<fieldset>
+    <legend>2) Monte seu pedido</legend>
+
+    
+    <label><strong>borda recheada?</strong></label>
+    <label><input type="radio" name="destino" value="Rio de Janeiro|300" checked> sim </label>
+    <label><input type="radio" name="destino" value="Foz do Iguaçu|350"> não </label>
+    
+    <div class="linha" style="margin-top:6px">
+      <label> Noites:
+        <input id="campo_noites" type="number" min="1" value="2" style="width:80px">
+      </label>
+
+      <label> Hotel:
+    
+        <select id="lista_hoteis"></select>
+      </label>
+    </div>
+
+    <label style="margin-top:6px"><strong>Extras</strong></label>
+    <label><input type="checkbox" class="extra" value="Café da manhã|30"> Café da manhã (R$ 30/noite)</label>
+    <label><input type="checkbox" class="extra" value="City tour|120"> City tour (R$ 120 por pacote)</label>
+    <label><input type="checkbox" class="extra" value="Traslado aeroporto|80"> Traslado aeroporto (R$ 80 por pacote)</label>
+
+    <div class="linha" style="margin-top:8px">
+      <input id="campo_observacoes" type="text" placeholder="Observações (ex.: cama extra)" style="flex:1">
+      <input id="campo_qtd_personalizado" type="number" min="1" value="1" style="width:80px">
+      <button class="no-print" onclick="adicionarPacotePersonalizado()">Adicionar pacote personalizado</button>
+    </div>
+
+    <div id="preco_estimado"><em>Preço estimado: R$ 0,00</em></div>
+  </fieldset>
 
 
-<script src="script.js"></script>
+  <fieldset>
+    <legend>3) Voo (opcional)</legend>
+    <select id="lista_voos"></select>
+    <input id="campo_qtd_voo" type="number" min="1" value="1" style="width:80px">
+    <button class="no-print" onclick="adicionarVoo()">Adicionar voo</button>
+  </fieldset>
+
+
+
+    <button type="button" onclick="gerarRelatorio()">Gerar Relatório</button>
+  </form>
+
+  <hr>
+
+  <div id="relatorio"></div>
+
+  <br>
+  <button onclick="window.print()">Gerar PDF do Relatório</button>
+
+  <script src="script.js"></script>
+
+
 </body>
 </html>
